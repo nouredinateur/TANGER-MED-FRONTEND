@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from "./components/Auth/Login";
+import Signup from "./components/Auth/Signup";
+import Container from "./components/OPS/Container";
+import { AuthContext } from "./components/tools/Context/useAuth";
+import { useState } from "react";
+import Nav from "./components/layout/Nav";
+import Routes from "./routes/data";
 
 function App() {
+  const [token, setToken] = useState("no token");
+  const [data, setData] = useState(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider
+      value={{
+        data,setData
+      }}
+    >
+    <Routes></Routes>
+    </AuthContext.Provider>
   );
 }
 
