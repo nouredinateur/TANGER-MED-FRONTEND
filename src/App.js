@@ -5,18 +5,23 @@ import { AuthContext } from "./components/tools/Context/useAuth";
 import { useState } from "react";
 import Nav from "./components/layout/Nav";
 import Routes from "./routes/data";
+import Routers from "./routes/Routers";
 
 function App() {
   const [token, setToken] = useState("no token");
   const [data, setData] = useState(null);
   return (
-    <AuthContext.Provider
+    <>
+        <AuthContext.Provider
       value={{
         data,setData
       }}
     >
-    <Routes></Routes>
+    {/* <Routes></Routes> */}
     </AuthContext.Provider>
+    <Routers />
+    </>
+
   );
 }
 

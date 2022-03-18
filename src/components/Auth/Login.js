@@ -1,16 +1,15 @@
-import { useState, createContext, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Navigate } from "react-router";
 import { useAuthContext } from "../tools/Context/useAuth";
 
 export default function Login() {
   const navigate=useNavigate()
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("nourdine@gmail.com");
+  const [password, setPassword] = useState("nnafzaoui");
   const [token, setToken] = useState("");
-  // const [data, setData] = useState({});
-  const {data:user,setData:setUser}=useAuthContext();
-  console.log(user)
+  const [data, setData] = useState({});
+
   let credentials = {
     email: email,
     password: password,
@@ -30,22 +29,18 @@ export default function Login() {
       const result = res.json();
       result.then((res) => {
         setToken(res.token);
-        setUser(res.data.user);
-        // setData(res.data.user);
-
-  localStorage.setItem("token", token);
-  navigate("/")
-
+        setData(res.data.user);
+        navigate('/container')
       });
     } catch (error) {
       console.log(error);
     }
   }
   //saving the jwt in local storage
-
-
+  localStorage.setItem("token", token);
   return (
     <>
+    
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>

@@ -1,24 +1,31 @@
-import React, { useEffect } from 'react'
-import { Outlet } from 'react-router';
-import { Navigate } from 'react-router';
-import { useNavigate } from 'react-router';
-import {Route} from "react-router-dom"
-import { useAuthContext } from '../../components/tools/Context/useAuth'
+// import React, { useEffect } from 'react'
+// import { Outlet } from 'react-router';
+// import { Navigate } from 'react-router';
+// import { useNavigate } from 'react-router';
+// import {Route} from "react-router-dom"
+// import { useAuthContext } from '../../components/tools/Context/useAuth'
 
-const ProtectedRoute = ({children,...props}) => {
-    const {user,setUser}= useAuthContext();
+// const ProtectedRoute = ({children,user,...props}) => {
+//     // const {user,setUser}= useAuthContext();
    
-    // console.log(user);
+//     // console.log(user);
+
+//     useEffect(()=>{
+//         if(!user) return <Navigate to={"/login"} />
+//     },[user])
   
-  return (
-      <>
-    {
-       user==undefined|| user  && <Outlet />  || <Navigate to={"/login"} />
-    } 
-      </>
+//   return (
+//       <>
+    
+//         <Outlet />  
+    
+//       </>
    
     
-  )
-}
+//   )
+// }
 
-export default ProtectedRoute
+
+
+
+// export default ProtectedRoute
